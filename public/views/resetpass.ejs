@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ลืมรหัสผ่าน</title>
+    <link rel="stylesheet" href="../css/resetpass.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="Pictures/logo.png" alt="">
+            </div>
+            
+        </div>
+    </header><br>
+    <center>
+        <% if (Fail && Fail.length > 0) { %>
+            <div class="alert alert-danger" role="alert">
+                <%= Fail %>
+            </div>
+        <% } %>
+
+        <div class="login">
+            <h1> ลืมรหัสผ่าน </h1> 
+        </div>
+    
+        <div class="user">
+            <form action="/resetpass" method="post">
+                <input type="text" name="username" placeholder="ชื่อผู้ใช้" required> <br>
+                <input type="email" name="email" placeholder="Email" required> <br> <br>
+                <button type="submit"> ยืนยัน </button>
+            </form> <br>
+        </div>
+    </center>
+</body>
+</html>

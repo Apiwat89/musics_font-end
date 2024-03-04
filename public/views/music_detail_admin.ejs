@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music detail admin</title>
+    <link rel="stylesheet" href="../css/music_detail_admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="../Pictures/logo.png" alt="">
+            </div>
+            <nav>
+                <%- include('nav.ejs', {Role: Role, User: User}) -%>
+            </nav>
+        </div>
+    </header>
+    <center>
+
+        <div class="listsong">
+            <img src="../Pictures/<%= muscis_detail.musicImg %>" style="width: 100px; height: 100px;">
+            <h1> ชื่อเพลง : <%= muscis_detail.title %> </h1>
+            <h1> ศิลปิน : <%= muscis_detail.singer %> </h1>
+            <h1> แนวเพลง : <%= muscis_detail.genre %> </h1>
+            <h1> วันที่ออกเพลง : <%= muscis_detail.release_date %> </h1>
+            <a href="/music_edit_admin/<%= muscis_detail.id %>"> <button> แก้ไข </button> </a>
+            <a href="/music_delete_admin/<%= muscis_detail.id %>"> <button> ลบ </button> </a>
+        </div>
+    </center>
+</body>
+</html>

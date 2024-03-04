@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="Pictures/logo.png" alt="">
+            </div>
+            <nav>
+                <%- include('nav.ejs', {Role: Role, User: User}) -%>
+            </nav>
+        </div>
+    </header>
+    <center>
+        <div class="listgenre">
+            <h1> แนวเพลง </h1>
+            <a href="/playlist_sad"> <button> เพลงเศร้า </button> </a>
+            <a href="/playlist_love"> <button> เพลงรัก </button> </a>
+            <a href="/playlist_modern"> <button> เพลงสากล </button> </a>
+            <a href="/playlist_hit"> <button> เพลงฮิต </button> </a>
+        </div>
+
+        <div class="listsong">
+            <h1> เพลงทั้งหมด </h1>
+            <% for (let i = 0; i < musics.length; i++) { %>
+                <a href="/music_detail/<%= musics[i].id %>"> <button> <img src="../Pictures/<%= musics[i].musicImg %>"> </button> </a>
+            <% } %>
+        </div>
+
+        <div class="playlist">
+            <h1> เพลส์ลิสของฉัน </h1>
+            <a href="/playlist_create"> <button class="add"> สร้าง </button> </a>
+            <% 
+                let ch = [];
+                for (let i = 0; i < pl.length; i++) { 
+                    if (!ch.includes(pl[i].playlistname)) {
+                        ch.push(pl[i].playlistname);
+            %>
+                <a href="/playlist_detail/<%= pl[i].playlistname %>"> <button class="pl"> <%= pl[i].playlistname %> </button>  </a>
+            <% } } %>
+        </div>
+    </center>
+</body>
+</html>

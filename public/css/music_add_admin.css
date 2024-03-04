@@ -1,0 +1,174 @@
+body {
+    font-family: "Noto Sans Thai", sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+center {
+    justify-content: center;
+    align-items: center;
+}
+
+.listsong {
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 50%;
+}
+
+h1 {
+    color: #333;
+}
+
+h2 {
+    margin-top: 10px;
+}
+
+input {
+    font-family: "Noto Sans Thai", sans-serif;
+    width: 60%;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+button {
+    background-color: #434245;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #9461b1;
+}
+
+nav {
+    margin-left: auto;
+    width: 80%;
+  }
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+
+header {
+    background-color: #7b409a; /* Set your desired background color */
+    color: #fff; /* Set text color */
+    padding: 1px 0;
+}
+
+.logo img {
+    width: 100px;
+    height: auto;
+}
+
+
+.head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-buttons {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-buttons button {
+    margin: 5px;
+    width: 140px;
+    font-family: "Noto Sans Thai", sans-serif;
+  }
+  
+  .nav-buttons button:hover {
+    background-color: #7b409a;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 120px;
+    z-index: 1;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .dropbtn {
+    background-color: transparent;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    background-color: #1c1c1c;
+  }
+  
+  .dropdown .dropbtn:hover {
+    background-color: #000000;
+  }
+  
+  .head input[type='search'] {
+    width: 100%;
+    margin-right: 20px;
+    margin-top: 15px;
+  }
+
+  /* ชิดขวาเมื่อไม่มี serch  */
+nav {
+  margin-left: auto;
+  width: 80%;
+  width: 500px;
+} .dropdown {
+  position: relative;
+  display: inline-block;
+  margin-left: auto;
+  width: 80%;
+  width: 180px;
+} .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 120px;
+  z-index: 1;
+  width: 85%;
+  text-align: center;
+}

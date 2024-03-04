@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music detail</title>
+    <link rel="stylesheet" href="../css/music_detail.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="../Pictures/logo.png" alt="">
+            </div>
+            <nav>
+                <%- include('nav.ejs', {Role: Role, User: User}) -%>
+            </nav>
+        </div>
+    </header>
+    <center>
+        <div class="listgenre">
+            <h1> แนวเพลง </h1>
+            <a href="/playlist_sad"> <button> เพลงเศร้า </button> </a>
+            <a href="/playlist_love"> <button> เพลงรัก </button> </a>
+            <a href="/playlist_modern"> <button> เพลงสากล </button> </a>
+            <a href="/playlist_hit"> <button> เพลงฮิต </button> </a>
+
+        </div>
+
+            <div class="listsong">
+                <img src="../Pictures/<%= muscis_detail.musicImg %>" style="width: 100px; height: 100px;">
+                
+                <h1> ชื่อเพลง : <%= muscis_detail.title %> </h1>
+                <h1> ศิลปิน : <%= muscis_detail.singer %> </h1>
+                <h1> แนวเพลง : <%= muscis_detail.genre %> </h1>
+                <h1> วันที่ออกเพลง : <%= muscis_detail.release_date %> </h1>
+                <a href="/" onclick="_black"> <button> ย้อนกลับ </button> </a>
+                <a href="/playlist_add/<%= muscis_detail.id %>"> <button> เพิ่มลงในเพลย์ลิส </button> </a>
+            </div>
+
+            <div class="review">
+                <form action="/review" method="post">
+                    <input type="hidden" value="<%= muscis_detail.id %>" name="musicid">
+                    <p>ให้คะแนน</p>
+                    <div class="score">
+                        <p>1</p>
+                        <input style="margin-right: 10px;" type="radio" value="1" name="score">
+                        <p>2</p>
+                        <input style="margin-right: 10px;" type="radio" value="2" name="score">
+                        <p>3</p>
+                        <input style="margin-right: 10px;" type="radio" value="3" name="score">
+                        <p>4</p>
+                        <input style="margin-right: 10px;" type="radio" value="4" name="score">
+                        <p>5</p>
+                        <input style="margin-right: 10px;" type="radio" value="5" name="score">
+                    </div>
+                    <h2> แสดงความคิดเห็น </h2>
+                    <textarea cols="50" rows="10" name="comment" required></textarea><br>
+                    <button type="submit"> ส่ง </button>
+                </form>
+            </div>
+
+            <div class="cm">
+                <p> Comment </p>
+                <hr>
+                <% reviews.forEach(comment => { %>
+                    <div class="comment">
+                        <p>คุณ <font color="red"><%= comment.username %></font> <% comment.score*'*' %> บอกว่า : <%= comment.comment %></p>
+                    </div>
+                <% }); %>
+            </div>
+    </center>
+</body>
+</html>

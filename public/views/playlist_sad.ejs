@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เพลงเศร้า</title>
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="Pictures/logo.png" alt="">
+            </div>
+            <nav>
+                <%- include('nav.ejs', {Role: Role, User: User}) -%>
+            </nav>
+        </div>
+    </header>
+    <center>
+
+        <div class="listgenre">
+            <h1> แนวเพลง </h1>
+            <a href="/playlist_sad"> <button> เพลงเศร้า </button> </a>
+            <a href="/playlist_love"> <button> เพลงรัก </button> </a>
+            <a href="/playlist_modern"> <button> เพลงสากล </button> </a>
+            <a href="/playlist_hit"> <button> เพลงฮิต </button> </a>
+        </div>
+
+        <div class="listsong">
+            <h1> เพลงเศร้า </h1>
+            <% for (let i = 0; i < muscis_sad.length; i++) { %> <!-- รับค่าตัวแปรจาก .get และนำมา for loop-->
+                <a href="/music_detail/<%= muscis_sad[i].id %>"> <button> <img src="../Pictures/<%= muscis_sad[i].musicImg %>" style="width: 100px; height: 100px;"> </button> </a>
+            <% } %>
+        </div>
+    </center>
+</body>
+</html>

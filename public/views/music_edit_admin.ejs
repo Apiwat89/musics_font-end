@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music edit admin</title>
+    <link rel="stylesheet" href="../css/music_edit_admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="../Pictures/logo.png" alt="">
+            </div>
+            <nav>
+                <%- include('nav.ejs', {Role: Role, User: User}) -%>
+            </nav>
+        </div>
+    </header>
+    <center>
+
+        <form action="/editMusic/<%= music.id %>" method="post" enctype="multipart/form-data">
+            <div class="listsong">
+                <h1> แก้ไข </h1>
+                <h2> ชื่อเพลง </h2> <input type="text" name="title" placeholder="<%= music.title %>">
+                <h2> ชื่อนักร้อง </h2> <input type="text" name="singer" placeholder="<%= music.singer %>">
+                <h2> แนวเพลง </h2> <input type="text" name="genre" placeholder="<%= music.genre %>">
+                <h2> วันที่ลง </h2> <input type="text" name="release_date" placeholder="<%= music.release_date %>">
+                <h2> เพิ่มภาพหน้าปก </h2> <input type="file" name="musicImg"><br>
+                <button type="submit"> ยืนยัน </button>
+            </div>
+        </form>
+    </center>
+</body>
+</html>

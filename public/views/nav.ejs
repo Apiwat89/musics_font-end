@@ -1,0 +1,25 @@
+<div class="head">
+    <!-- <input type="search" placeholder="ค้นหาเพลง"> -->
+    <div class="nav-buttons">
+        <% if (Role === 'admin' || Role === 'user') { %>
+        <a href="/info"><button> ข้อมูลส่วนตัว </button></a> 
+        <% } %>
+        <% if (Role === 'admin') { %>
+        <a href="/admin"><button> management </button></a> 
+        <a href="/logout"><button> Log out </button></a> 
+        <% } %>
+        <% if (Role === 'user') { %>
+        <button> <%= User %> </button>
+        <a href="/logout"><button> Log out </button></a> 
+        <% } %>
+        <% if (!Role) { %>
+        <div class="dropdown">
+            <button class="dropbtn">เมนู</button>
+            <div class="dropdown-content">
+                <a href="/login">ล็อกอิน</a>
+                <a href="/register">สมัคร</a>
+            </div>
+        </div>
+        <% } %>
+    </div>
+</div>

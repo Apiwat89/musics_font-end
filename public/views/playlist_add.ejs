@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music detail</title>
+    <link rel="stylesheet" href="../css/playlist_add.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="../Pictures/logo.png" alt="">
+            </div>
+            <nav>
+                <%- include('nav.ejs', {Role: Role, User: User}) -%>
+            </nav>
+        </div>
+    </header>
+    <center>
+                <div class="listsong">
+                    <h1> เพิ่มลงในเพลย์ลิส </h1>
+                    <a href="/playlist_create"> <button class="add"> สร้าง </button> </a>
+                    <form action="/addPL/<%= musicid %>" method="post">
+                        <% 
+                            let ch = [];
+                            for (let i = 0; i < pl.length; i++) { 
+                                if (!ch.includes(pl[i].playlistname)) {
+                                    ch.push(pl[i].playlistname);
+                                }
+                            }
+                    
+                            for (let i = 0; i < ch.length; i++) { 
+                        %>
+                            <button type="submit" name="plname" value="<%= ch[i] %>" class="pl"><%= ch[i] %></button>
+                        <% } %>
+                    </form>
+                </div>
+    </center>
+</body>
+</html>
